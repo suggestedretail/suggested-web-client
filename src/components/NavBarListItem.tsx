@@ -16,14 +16,14 @@ const NavBarListItem: FC<NavBarItem> = (props) => {
           src={props.imgSrc}
           alt=''
           className={
-            'block h-[24px] ml-2 group-hover:hidden group-aria-current-page:hidden'
+            'block h-6 ml-2 group-hover:hidden group-aria-current-page:hidden'
           }
         />
         <img
           src={props.imgSrcAlt}
           alt=''
           className={
-            'hidden h-[24px] ml-2 group-hover:block group-aria-current-page:block'
+            'hidden h-6 ml-2 group-hover:block group-aria-current-page:block'
           }
         />
       </div>

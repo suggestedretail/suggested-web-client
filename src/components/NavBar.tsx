@@ -49,9 +49,9 @@ const navBarItems: Array<NavBarItem> = [
 
 const NavBar: FC = () => {
   return (
-    <div className='flex flex-col bg-secondary w-64 h-screen space-y-6'>
+    <div className='flex flex-col bg-secondary w-full h-screen space-y-6'>
       <Link to='/'>
-        <img src={logo} alt='' className='w-[80%]' />
+        <img src={logo} alt='' className='w-4/5' />
       </Link>
       <nav className='flex flex-col space-y-2 items-center'>
         {navBarItems.map((i) => (
