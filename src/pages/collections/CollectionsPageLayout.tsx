@@ -1,14 +1,8 @@
-import { FC, useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 import CollectionsTopBar from '../../components/collections/CollectionsTopBar';
 
-const Collections: FC = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate('/collections/create');
-  }, []);
-
+const CollectionsPageLayout: FC = () => {
   return (
     <div id='CollectionsPage' className='flex flex-col w-full h-full'>
       <div className='h-14 w-full'>
@@ -21,4 +15,4 @@ const Collections: FC = () => {
   );
 };
 
-export default Collections;
+export default CollectionsPageLayout;
