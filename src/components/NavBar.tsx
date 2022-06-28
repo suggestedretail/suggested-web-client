@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import archiveAlt from '../assets/img/archive-alt.svg';
 import archive from '../assets/img/archive.svg';
 import barChartAlt from '../assets/img/bar-chart-alt.svg';
@@ -48,21 +48,9 @@ const navBarItems: Array<NavBarItem> = [
 ];
 
 const NavBar: FC = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    let paths = location.pathname.split('/');
-    if (paths && paths.length > 1) {
-      let firstPath = paths[1];
-      setSelectedRoute(firstPath);
-    }
-  }, [location]);
-
-  const [selectedRoute, setSelectedRoute] = useState<string>();
-
   return (
     <div className='flex flex-col bg-secondary w-64 h-screen space-y-6'>
-      <Link to='/' onClick={() => setSelectedRoute('')}>
+      <Link to='/'>
         <img src={logo} alt='' className='w-[80%]' />
       </Link>
       <nav className='flex flex-col space-y-2 items-center'>
@@ -72,8 +60,6 @@ const NavBar: FC = () => {
             imgSrcAlt={i.imgSrcAlt}
             title={i.title}
             route={i.route}
-            // onClick={() => setSelectedRoute(i.title.toLowerCase())}
-            selected={selectedRoute === i.title.toLowerCase()}
           />
         ))}
       </nav>

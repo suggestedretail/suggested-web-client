@@ -1,48 +1,39 @@
-import { FC, MouseEventHandler } from 'react';
-import { Link } from 'react-router-dom';
+import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 import { NavBarItem } from '../types/NavBarItem';
 
-interface NavBarListItemProps extends NavBarItem {
-  onClick?: MouseEventHandler<HTMLElement>;
-  selected?: boolean;
-}
-
-const NavBarListItem: FC<NavBarListItemProps> = (props) => {
+const NavBarListItem: FC<NavBarItem> = (props) => {
   return (
-    <Link
+    <NavLink
       key={props.title}
       to={props.route}
-      onClick={props.onClick}
-      className={
+      className={({ isActive }) =>
         'group flex flex-row items-center w-5/6 rounded hover:bg-primary' +
-        (props.selected ? ' bg-primary' : '')
+        (isActive ? ' bg-primary' : '')
       }>
       <div className='my-1'>
         <img
           src={props.imgSrc}
           alt=''
           className={
-            'h-[24px] ml-2 group-hover:hidden' +
-            (props.selected ? ' hidden' : '')
+            'block h-[24px] ml-2 group-hover:hidden group-aria-current-page:hidden'
           }
         />
         <img
           src={props.imgSrcAlt}
           alt=''
           className={
-            'h-[24px] ml-2 group-hover:block' +
-            (props.selected ? ' block' : ' hidden')
+            'hidden h-[24px] ml-2 group-hover:block group-aria-current-page:block'
           }
         />
       </div>
       <div
         className={
-          'ml-4 text-primary text-sm font-semibold group-hover:text-white' +
-          (props.selected ? ' text-white' : '')
+          'ml-4 text-primary text-sm font-semibold group-hover:text-white group-aria-current-page:text-white'
         }>
         {props.title}
       </div>
-    </Link>
+    </NavLink>
   );
 };
 
