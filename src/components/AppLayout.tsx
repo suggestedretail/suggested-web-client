@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 
 const AppLayout: FC = () => {
   return (
-    <div className='flex'>
+    <div className='flex w-screen h-screen'>
       <div className='flex w-1/6'>
         <NavBar />
       </div>

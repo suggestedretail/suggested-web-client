@@ -11,7 +11,7 @@ import settingsAlt from '../assets/img/settings-alt.svg';
 import settings from '../assets/img/settings.svg';
 import shoppingBagAlt from '../assets/img/shopping-bag-alt.svg';
 import shoppingBag from '../assets/img/shopping-bag.svg';
-import { NavBarItem } from '../types/NavBarItem';
+import { NavBarItem } from '../models/NavBarItem';
 import NavBarListItem from './NavBarListItem';
 
 const navBarItems: Array<NavBarItem> = [
@@ -49,7 +49,7 @@ const navBarItems: Array<NavBarItem> = [
 
 const NavBar: FC = () => {
   return (
-    <div className='flex flex-col bg-secondary w-full h-screen space-y-6'>
+    <div className='flex flex-col bg-secondary w-full space-y-6 overflow-hidden'>
       <Link to='/'>
         <img src={logo} alt='' className='w-4/5' />
       </Link>

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { NavBarItem } from '../types/NavBarItem';
+import { NavBarItem } from '../models/NavBarItem';
 
 const NavBarListItem: FC<NavBarItem> = (props) => {
   return (
