@@ -10,7 +10,7 @@ const CollectionsTopBar: FC = () => {
         <img src={search} alt='' className='h-5' />
         <input
           type='text'
-          className='border-none shadow-none outline-0 h-5 text-black placeholder:text-lighterGray placeholder:font-medium'
+          className='border-none shadow-none outline-0 h-5 text-black placeholder:font-avenir placeholder:text-lighterGray placeholder:font-medium'
           placeholder='Search Collections'></input>
       </div>
       {/* Profile Section */}
@@ -21,7 +21,9 @@ const CollectionsTopBar: FC = () => {
             alt=''
             className='rounded-full h-7'
           />
-          <div className='text-black font-medium text-sm'>Joe MacLennan</div>
+          <div className='text-black font-avenir font-medium text-sm'>
+            Joe MacLennan
+          </div>
           <img src={caretDown} alt='' />
         </div>
         {/* TODO: Figure out popover */}

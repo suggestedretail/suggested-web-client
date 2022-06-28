@@ -29,7 +29,7 @@ const NavBarListItem: FC<NavBarItem> = (props) => {
       </div>
       <div
         className={
-          'ml-4 text-primary text-sm font-semibold group-hover:text-white group-aria-current-page:text-white'
+          'ml-4 font-avenir text-primary text-sm font-semibold group-hover:text-white group-aria-current-page:text-white'
         }>
         {props.title}
       </div>

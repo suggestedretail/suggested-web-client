@@ -10,6 +10,11 @@ module.exports = {
         lightGray: '#878787',
         lighterGray: '#C4C4C4',
         black: '#262626'
+      },
+      fontFamily: {
+        avenir: ['Avenir', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+        inter: ['Inter', 'sans-serif']
       }
     }
   },
