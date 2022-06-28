@@ -59,14 +59,14 @@ const CreateCollectionsPage: FC = () => {
               </div>
               <input
                 type='text'
-                className='h-10 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm order-1 self-stretch grow-0 flex-none'
+                className='h-10 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm'
               />
             </div>
             <div className='flex flex-col space-y-1'>
               <div className='font-avenir text-gray-700 text-sm font-medium'>
                 Description
               </div>
-              <textarea className='h-28 max-h-80 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm order-1 self-stretch grow flex-none' />
+              <textarea className='h-20 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm resize-none' />
             </div>
           </div>
         </div>
