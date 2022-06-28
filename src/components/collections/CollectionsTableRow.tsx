@@ -1,9 +1,19 @@
 import { FC } from 'react';
 import { CollectionMetadata } from '../../models/CollectionMetadata';
 
-interface CollectionsTableRowProps extends CollectionMetadata {}
+interface CollectionsTableRowProps extends CollectionMetadata {
+  setShowQr(value: boolean): void;
+  setQrTitle(value: string): void;
+  setQrValue(value: string): void;
+}
 
 const CollectionsTableRow: FC<CollectionsTableRowProps> = (props) => {
+  const generateQr = () => {
+    props.setQrTitle(props.name);
+    props.setQrValue(props.qrCode);
+    props.setShowQr(true);
+  };
+
   return (
     <div
       id={props.name}
@@ -45,7 +55,11 @@ const CollectionsTableRow: FC<CollectionsTableRowProps> = (props) => {
             </div>
           </div>
         </div>
-        <div className='w-1/5 h-6 flex'>View Code</div>
+        <div
+          className='w-1/5 h-6 flex font-avenir font-extrabold text-base text-primary hover:cursor-pointer hover:underline'
+          onClick={() => generateQr()}>
+          View Code
+        </div>
       </div>
     </div>
   );

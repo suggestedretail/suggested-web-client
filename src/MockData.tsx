@@ -6,7 +6,7 @@ export const mockCollectionMetadata: Array<CollectionMetadata> = [
     totalItems: 23,
     totalItemsPurchased: 803,
     totalItemsScanned: 1803,
-    qrCode: ''
+    qrCode: 'https://www.google.com'
   },
   {
     name: 'Fall 2021',

@@ -29,7 +29,7 @@ const CreateCollectionsPage: FC = () => {
       {/* Panel */}
       <div
         className={
-          'flex flex-col absolute right-px h-full max-h-full bg-white w-96 shadow-xl rounded transition ease-in-out duration-300' +
+          'flex flex-col absolute right-0 h-full max-h-full bg-white w-96 shadow-xl rounded transition ease-in-out duration-300' +
           (showPanel ? ' block' : ' hidden')
         }>
         <div className='h-32 bg-primary p-6'>
@@ -66,7 +66,7 @@ const CreateCollectionsPage: FC = () => {
               <div className='font-avenir text-gray-700 text-sm font-medium'>
                 Description
               </div>
-              <textarea className='h-20 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm resize-none' />
+              <textarea className='h-32 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm resize-none' />
             </div>
           </div>
         </div>
