@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import AppLayout from './components/AppLayout';
 import Analytics from './pages/Analytics';
 import Archive from './pages/Archive';
@@ -17,6 +17,8 @@ const App: FC = () => {
           <Route path='archive' element={<Archive />} />
           <Route path='analytics' element={<Analytics />} />
           <Route path='settings' element={<Settings />} />
+          <Route path='*' element={<Navigate to='/collections' />} />
+          <Route index element={<Navigate to='/collections' />} />
         </Route>
       </Routes>
     </BrowserRouter>
