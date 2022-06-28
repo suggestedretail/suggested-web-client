@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import close from '../../assets/img/close.svg';
 import plus from '../../assets/img/plus.svg';
 
-const CreateCollections: FC = () => {
+const CreateCollectionsPage: FC = () => {
   const [showPanel, setShowPanel] = useState<boolean>();
 
   return (
@@ -83,4 +83,4 @@ const CreateCollections: FC = () => {
   );
 };
 
-export default CreateCollections;
+export default CreateCollectionsPage;
