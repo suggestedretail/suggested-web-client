@@ -1,3 +1,4 @@
+import { Collection } from './models/Collection';
 import { CollectionMetadata } from './models/CollectionMetadata';
 
 export const mockCollectionMetadata: Array<CollectionMetadata> = [
@@ -63,5 +64,16 @@ export const mockCollectionMetadata: Array<CollectionMetadata> = [
     totalItemsPurchased: 803,
     totalItemsScanned: 1803,
     qrCode: ''
+  }
+];
+
+export const mockCollections: Array<Collection> = [
+  {
+    name: '100% Organic Cotton Pocket T-Shirt',
+    price: 19.95,
+    imageUrl:
+      'https://www4.assets-gap.com/webcontent/0020/382/099/cn20382099.jpg?q=h&w=234',
+    productUrl:
+      'https://www.gap.com/browse/product.do?pid=878111072&cid=5225&pcid=5225&vid=1'
   }
 ];
