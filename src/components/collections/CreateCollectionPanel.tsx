@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import close from '../../assets/img/close.svg';
+import { Collection } from '../../models/Collection';
 import LocalDbService from '../../services/LocalDbService';
 
 interface CreateCollectionPanelProps {
@@ -8,11 +10,33 @@ interface CreateCollectionPanelProps {
 }
 
 const CreateCollectionPanel: FC<CreateCollectionPanelProps> = (props) => {
+  const navigate = useNavigate();
+  const [name, setName] = useState<string>();
+  const [description, setDescription] = useState<string>();
+  const [canCreate, setCanCreate] = useState<boolean>(false);
+
   const onCreate = () => {
-    LocalDbService.createCollection();
+    let namePath = name?.toLowerCase().replaceAll(' ', '_');
+    let newCollection: Collection = {
+      id: namePath ?? '',
+      name: name ?? '',
+      description: description ?? '',
+      totalItems: 0,
+      totalItemsPurchased: 0,
+      totalItemsScanned: 0,
+      qrCode: 'www.google.com'
+    };
+
+    LocalDbService.createCollection(newCollection);
     props.onClose();
-    window.location.reload();
+    navigate(`/collections/edit/${namePath}`);
   };
+
+  useEffect(() => {
+    let nameValid = name !== undefined;
+    let descriptionValid = description !== undefined;
+    setCanCreate(nameValid && descriptionValid);
+  }, [name, description]);
 
   return (
     <div
@@ -48,13 +72,17 @@ const CreateCollectionPanel: FC<CreateCollectionPanelProps> = (props) => {
             <input
               type='text'
               className='h-10 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm'
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className='flex flex-col space-y-1'>
             <div className='font-avenir text-gray-700 text-sm font-medium'>
               Description
             </div>
-            <textarea className='h-32 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm resize-none' />
+            <textarea
+              className='h-32 border border-gray-300 rounded-md py-2 px-3 outline-0 shadow-sm resize-none'
+              onChange={(e) => setDescription(e.target.value)}
+            />
           </div>
         </div>
       </div>
@@ -65,7 +93,8 @@ const CreateCollectionPanel: FC<CreateCollectionPanelProps> = (props) => {
           Cancel
         </button>
         <button
-          className='w-20 h-10 bg-primary rounded-md font-avenir text-white text-sm font-medium shadow-sm hover:opacity-70'
+          className='w-20 h-10 bg-primary rounded-md font-avenir text-white text-sm font-medium shadow-sm hover:opacity-70 disabled:opacity-70'
+          disabled={!canCreate}
           onClick={() => onCreate()}>
           Create
         </button>

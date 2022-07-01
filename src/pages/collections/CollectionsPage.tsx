@@ -9,7 +9,20 @@ const CollectionsPage: FC = () => {
   const [collections, setCollections] = useState<Array<CollectionMetadata>>([]);
 
   useEffect(() => {
-    setCollections(LocalDbService.getCollections());
+    let collections = LocalDbService.getCollections();
+    let collectionsMeta = collections.map((c) => {
+      let meta: CollectionMetadata = {
+        id: c.id,
+        name: c.name,
+        totalItems: c.totalItems,
+        totalItemsScanned: c.totalItemsScanned,
+        totalItemsPurchased: c.totalItemsPurchased,
+        qrCode: c.qrCode
+      };
+      return meta;
+    });
+
+    setCollections(collectionsMeta);
   }, []);
 
   return (

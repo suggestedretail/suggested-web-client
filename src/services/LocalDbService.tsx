@@ -1,36 +1,37 @@
-import { CollectionMetadata } from '../models/CollectionMetadata';
+import { Collection } from '../models/Collection';
 
 const getCollections = () => {
   let collectionsJson = window.localStorage.getItem('collections');
   if (collectionsJson) {
-    let collections: Array<CollectionMetadata> = JSON.parse(collectionsJson);
+    let collections: Array<Collection> = JSON.parse(collectionsJson);
     return collections;
   }
 
   return [];
 };
 
-const createCollection = () => {
-  let collections: Array<CollectionMetadata> = [];
+const createCollection = (value: Collection) => {
+  let collections: Array<Collection> = [];
   let collectionsJson = window.localStorage.getItem('collections');
   if (collectionsJson) {
     collections = JSON.parse(collectionsJson);
   }
 
-  collections.push({
-    name: 'Summer 2021',
-    totalItems: 23,
-    totalItemsPurchased: 803,
-    totalItemsScanned: 1803,
-    qrCode: 'https://www.google.com'
-  });
+  collections.push(value);
 
   window.localStorage.setItem('collections', JSON.stringify(collections));
 };
 
+const getCollection = (id: string) => {
+  let collectionsJson = window.localStorage.getItem('collections');
+  let collections: Array<Collection> = JSON.parse(collectionsJson ?? '');
+  return collections.filter((c) => c.id === id)[0];
+};
+
 const LocalDbService = {
   getCollections,
-  createCollection
+  createCollection,
+  getCollection
 };
 
 export default LocalDbService;
