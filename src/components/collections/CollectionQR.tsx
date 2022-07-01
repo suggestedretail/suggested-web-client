@@ -24,6 +24,7 @@ const CollectionQR: FC<CollectionQRProps> = (props) => {
           <img
             src={close}
             alt=''
+            draggable={false}
             onClick={props.onClose}
             className='hover:cursor-pointer'
           />

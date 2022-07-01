@@ -7,6 +7,7 @@ const NavBarListItem: FC<NavBarItem> = (props) => {
     <NavLink
       key={props.title}
       to={props.route}
+      draggable={false}
       className={({ isActive }) =>
         'group flex flex-row items-center w-5/6 rounded hover:bg-primary' +
         (isActive ? ' bg-primary' : '')
@@ -15,6 +16,7 @@ const NavBarListItem: FC<NavBarItem> = (props) => {
         <img
           src={props.imgSrc}
           alt=''
+          draggable={false}
           className={
             'block h-6 ml-2 group-hover:hidden group-aria-current-page:hidden'
           }
@@ -22,6 +24,7 @@ const NavBarListItem: FC<NavBarItem> = (props) => {
         <img
           src={props.imgSrcAlt}
           alt=''
+          draggable={false}
           className={
             'hidden h-6 ml-2 group-hover:block group-aria-current-page:block'
           }

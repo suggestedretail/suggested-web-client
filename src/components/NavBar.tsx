@@ -50,8 +50,8 @@ const navBarItems: Array<NavBarItem> = [
 const NavBar: FC = () => {
   return (
     <div className='flex flex-col bg-secondary w-full space-y-6 overflow-hidden'>
-      <Link to='/'>
-        <img src={logo} alt='' className='w-4/5' />
+      <Link to='/' draggable={false}>
+        <img src={logo} alt='' className='w-4/5' draggable={false} />
       </Link>
       <nav className='flex flex-col space-y-2 items-center'>
         {navBarItems.map((i) => (
