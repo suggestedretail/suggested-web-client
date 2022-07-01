@@ -29,7 +29,7 @@ const CreateCollectionPanel: FC<CreateCollectionPanelProps> = (props) => {
 
     LocalDbService.createCollection(newCollection);
     props.onClose();
-    navigate(`/collections/edit/${namePath}`);
+    navigate(`/collections/edit/${namePath}?create=true`);
   };
 
   useEffect(() => {
